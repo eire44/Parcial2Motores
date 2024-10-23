@@ -22,7 +22,7 @@ public class Disparo : MonoBehaviour
             //Instantiate(bala, bala.transform.position, transform.rotation);
             GameObject bala2 = Instantiate(bala, bala.transform.position, transform.rotation) as GameObject;
             //bala.transform.position += Time.deltaTime * velocidad * transform.forward;
-
+            bala2.tag = "Bala";
             Rigidbody rb = bala2.GetComponent<Rigidbody>();
 
             rb.AddForce(transform.forward * velocidad);

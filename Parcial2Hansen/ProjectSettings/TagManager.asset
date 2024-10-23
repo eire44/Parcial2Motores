@@ -11,6 +11,9 @@ TagManager:
   - Puerta
   - EneVeloz
   - Piso
+  - Bala
+  - BalasDelEnemigo
+  - EnemigoTirador
   layers:
   - Default
   - TransparentFX

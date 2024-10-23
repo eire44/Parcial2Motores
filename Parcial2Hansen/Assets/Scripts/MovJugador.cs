@@ -27,7 +27,8 @@ public class MovJugador : MonoBehaviour
     private bool salAct = false;
 
 
-
+    public GameObject gameOver;
+    public Button menu;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,9 +132,11 @@ public class MovJugador : MonoBehaviour
             estadoPU();
             timer.gameObject.SetActive(true);
 
-        } else if (collision.gameObject.tag == "EneVeloz") /////
+        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "Manchas")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameOver.gameObject.SetActive(true);
+            menu.gameObject.SetActive(false);
+            Time.timeScale = 0;
         }
         else if (collision.gameObject.tag == "Piso")
         {
