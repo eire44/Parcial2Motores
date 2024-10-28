@@ -11,17 +11,19 @@ public class MovJugador : MonoBehaviour
     public GameObject campoProtector;
 
     private bool enElPiso = false;
-    private float fuerzaDeSalto = 0;
+    private float fuerzaDeSalto = 300f;
 
     public Text timer;
     private float tiempo = 20f;
+
+    public GameObject flag;
 
     public Text PowerUp;
 
     public GameObject puVelocidad;
     public GameObject puCampo;
     public GameObject puLentitud;
-    public GameObject puSalto;
+    public GameObject puTripleDisparo;
     private bool velAct = false;
     private bool lenAct = false;
     private bool camAct = false;
@@ -64,7 +66,7 @@ public class MovJugador : MonoBehaviour
             tiempo -= Time.deltaTime;
             puCampo.SetActive(false);
             puLentitud.SetActive(false);
-            puSalto.SetActive(false);
+            puTripleDisparo.SetActive(false);
             puVelocidad.SetActive(false);
         }
         else
@@ -79,7 +81,7 @@ public class MovJugador : MonoBehaviour
             }
             if (salAct == true)
             {
-                puSalto.SetActive(true);
+                puTripleDisparo.SetActive(true);
             }
             if (lenAct == true)
             {
@@ -95,9 +97,9 @@ public class MovJugador : MonoBehaviour
             timer.gameObject.SetActive(false);
             tiempo = 20;
 
-            fuerzaDeSalto = 0;
             velocidad = 20;
             campoProtector.SetActive(false);
+            flag.gameObject.SetActive(false);
         }
         
     }
@@ -113,7 +115,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "¡Velocidad turbo activada!";
 
-        } else if (collision.gameObject.tag == "PUlento")
+        } else if (collision.gameObject.tag == "PUtripleDisparo")
         {
             velocidad = 5;
             collision.gameObject.SetActive(false);
@@ -125,12 +127,12 @@ public class MovJugador : MonoBehaviour
         }
         else if (collision.gameObject.tag == "PUsalto")
         {
-            fuerzaDeSalto = 300f;
+            flag.gameObject.SetActive(true);
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
             PowerUp.gameObject.SetActive(true);
-            PowerUp.text = "Desbloqueaste los saltos, ¡te servirán contra las manchas!";
+            PowerUp.text = "Desbloqueaste otro disparo, ¡te servirá contra los clones!";
 
         }
         else if (collision.gameObject.tag == "PUcampo")
@@ -142,7 +144,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
-        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "Manchas")
+        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon")
         {
             gameOver.gameObject.SetActive(true);
             menu.gameObject.SetActive(false);
@@ -180,7 +182,7 @@ public class MovJugador : MonoBehaviour
             camAct = false;
         }
 
-        if (puSalto.activeInHierarchy)
+        if (puTripleDisparo.activeInHierarchy)
         {
             salAct = true;
         } else

@@ -22,11 +22,23 @@ public class Balas : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
-        if(!(collision.gameObject.tag == "Player"))
+        if(!(collision.gameObject.tag == "Player") && !collision.gameObject.CompareTag("Bala"))
         {
             gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "EnemigoSaltador")
+        {
+            collision.gameObject.SetActive(false);
+            Debug.Log("ORIGINAAAALLLL");
+
+            GameObject[] enemigosSaltadores = GameObject.FindGameObjectsWithTag("EnemigoSaltadorClon");
+
+            foreach (GameObject enemigo in enemigosSaltadores)
+            {
+                enemigo.SetActive(false);
+            }
+        }
+        if (collision.gameObject.tag == "EnemigoSaltadorClon")
         {
             collision.gameObject.SetActive(false);
         }

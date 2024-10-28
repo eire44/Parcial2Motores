@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SaltoEnemigo : MonoBehaviour
 {
-
     public float jumpForce = 500f;
     public float jumpInterval = 1f;
     private Rigidbody rb;
     public GameObject enemigo;
     private float timer = 0f;
+    private int contadorClones = 0;
 
     void Start()
     {
@@ -20,17 +20,18 @@ public class SaltoEnemigo : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.tag == "EnemigoSaltador")
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= 1.5f)
+            if (gameObject.CompareTag("EnemigoSaltador"))
             {
+                timer += Time.deltaTime;
 
-                Clonar();
-                timer = 0f;
+                if (timer >= 1.5f)
+                {
+
+                    Clonar();
+                    contadorClones++;
+                    timer = 0f;
+                }
             }
-        }
         
     }
 
@@ -47,7 +48,7 @@ public class SaltoEnemigo : MonoBehaviour
     {
         GameObject Clon = Instantiate(enemigo, transform.position + transform.forward, transform.rotation);
         Clon.tag = "EnemigoSaltadorClon";
-        Clon.transform.SetParent(transform);
+        //Clon.transform.SetParent(transform);
         Rigidbody rb = Clon.GetComponent<Rigidbody>();
     }
 }
