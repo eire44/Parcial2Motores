@@ -16,6 +16,7 @@ public class MovJugador : MonoBehaviour
     public Text timer;
     private float tiempo = 20f;
 
+    public Text PowerUp;
 
     public GameObject puVelocidad;
     public GameObject puCampo;
@@ -84,6 +85,8 @@ public class MovJugador : MonoBehaviour
             {
                 puLentitud.SetActive(true);
             }
+
+            PowerUp.gameObject.SetActive(false);
         }
 
 
@@ -107,7 +110,8 @@ public class MovJugador : MonoBehaviour
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
-            
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "¡Velocidad turbo activada!";
 
         } else if (collision.gameObject.tag == "PUlento")
         {
@@ -115,6 +119,8 @@ public class MovJugador : MonoBehaviour
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "Velocidad nivel tortuga activada. No debiste hacer eso...";
 
         }
         else if (collision.gameObject.tag == "PUsalto")
@@ -123,6 +129,8 @@ public class MovJugador : MonoBehaviour
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "Desbloqueaste los saltos, ¡te servirán contra las manchas!";
 
         }
         else if (collision.gameObject.tag == "PUcampo")
@@ -131,6 +139,8 @@ public class MovJugador : MonoBehaviour
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "Campo protector activado, aprovéchalo";
 
         } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "Manchas")
         {

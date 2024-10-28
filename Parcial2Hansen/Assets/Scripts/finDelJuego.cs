@@ -15,6 +15,10 @@ public class finDelJuego : MonoBehaviour
     public Button reiniciarP;
 
     public Button reanudar;
+    public Button salirM;
+    public Button salirV;
+    public Button salirP;
+    public Button salirI;
 
     public Button comenzar;
     public Button menu;
@@ -31,6 +35,10 @@ public class finDelJuego : MonoBehaviour
         comenzar.onClick.AddListener(comenzarJ);
 
         menu.onClick.AddListener(abrirMenu);
+        salirM.onClick.AddListener(salirDelJuego);
+        salirP.onClick.AddListener(salirDelJuego);
+        salirV.onClick.AddListener(salirDelJuego);
+        salirI.onClick.AddListener(salirDelJuego);
 
         reanudar.onClick.AddListener(cerrarMenu);
     }
@@ -57,12 +65,24 @@ public class finDelJuego : MonoBehaviour
     void abrirMenu()
     {
         menuPrincipal.SetActive(true);
+        menu.gameObject.SetActive(false);
         Time.timeScale = 0;
     }
 
     void cerrarMenu()
     {
         menuPrincipal.SetActive(false);
+        menu.gameObject.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    void salirDelJuego()
+    {
+        #if UNITY_EDITOR  //Es una directiva de preprocesador que se evalúa antes de la compilación. Esto significa que el código dentro de esta directiva 
+                            //solo se incluye en el compilado si la condición se cumple, lo cual es útil para ejecutar código que solo debe funcionar en el editor de Unity.
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
