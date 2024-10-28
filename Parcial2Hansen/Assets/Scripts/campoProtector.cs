@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class unPowerALaVez : MonoBehaviour
+public class campoProtector : MonoBehaviour
 {
     
-
-    
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -18,14 +15,14 @@ public class unPowerALaVez : MonoBehaviour
     void Update()
     {
         
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BalasDelEnemigo")
+        {
 
-
-
-        //if (timer.gameObject.activeInHierarchy)
-        //{
-            
-
-        //}
+            other.gameObject.SetActive(false);
+        }
     }
 }
