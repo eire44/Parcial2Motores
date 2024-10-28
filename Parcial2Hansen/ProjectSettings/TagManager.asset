@@ -15,11 +15,13 @@ TagManager:
   - BalasDelEnemigo
   - EnemigoTirador
   - CampoProtector
+  - EnemigoSaltador
+  - EnemigoSaltadorClon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Piso
   - Water
   - UI
   - 

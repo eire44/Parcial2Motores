@@ -26,6 +26,9 @@ public class Balas : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        
+        if (collision.gameObject.tag == "EnemigoSaltador")
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

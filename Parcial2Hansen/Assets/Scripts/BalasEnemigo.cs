@@ -20,7 +20,6 @@ public class BalasEnemigo : MonoBehaviour
     {
         if (collision.gameObject.tag != "EnemigoTirador" && collision.gameObject.tag != "BalasDelEnemigo")
         {
-            Debug.Log(collision.gameObject.name);
             
             gameObject.SetActive(false);
         }
