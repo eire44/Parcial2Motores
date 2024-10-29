@@ -29,7 +29,6 @@ public class Balas : MonoBehaviour
         if (collision.gameObject.tag == "EnemigoSaltador")
         {
             collision.gameObject.SetActive(false);
-            Debug.Log("ORIGINAAAALLLL");
 
             GameObject[] enemigosSaltadores = GameObject.FindGameObjectsWithTag("EnemigoSaltadorClon");
 

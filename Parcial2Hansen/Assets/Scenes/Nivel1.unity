@@ -2765,6 +2765,8 @@ MonoBehaviour:
   eneS: {fileID: 380770385}
   eneT: {fileID: 1945333832}
   victoria: {fileID: 539866243}
+  timer: {fileID: 53895639}
+  PowerUp: {fileID: 1518283189}
   menu: {fileID: 457791213}
 --- !u!4 &615050580
 Transform:
@@ -6972,7 +6974,7 @@ GameObject:
   - component: {fileID: 2007486753}
   m_Layer: 0
   m_Name: DisparosTriples
-  m_TagString: PUsalto
+  m_TagString: PUtripleDisparo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

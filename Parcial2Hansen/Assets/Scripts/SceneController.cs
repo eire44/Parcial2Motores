@@ -10,6 +10,8 @@ public class SceneController : MonoBehaviour
     public GameObject eneS;
     public GameObject eneT;
     public GameObject victoria;
+    public Text timer;
+    public Text PowerUp;
 
     public Button menu;
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class SceneController : MonoBehaviour
         {
             victoria.SetActive(true);
             menu.gameObject.SetActive(false);
+            PowerUp.gameObject.SetActive(false);
+            timer.gameObject.SetActive(false);
             Time.timeScale = 0;
         }
     }

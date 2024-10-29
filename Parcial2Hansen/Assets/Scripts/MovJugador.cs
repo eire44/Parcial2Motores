@@ -115,7 +115,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "¡Velocidad turbo activada!";
 
-        } else if (collision.gameObject.tag == "PUtripleDisparo")
+        } else if (collision.gameObject.tag == "PUlento")
         {
             velocidad = 5;
             collision.gameObject.SetActive(false);
@@ -125,7 +125,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.text = "Velocidad nivel tortuga activada. No debiste hacer eso...";
 
         }
-        else if (collision.gameObject.tag == "PUsalto")
+        else if (collision.gameObject.tag == "PUtripleDisparo")
         {
             flag.gameObject.SetActive(true);
             collision.gameObject.SetActive(false);
@@ -147,6 +147,8 @@ public class MovJugador : MonoBehaviour
         } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon")
         {
             gameOver.gameObject.SetActive(true);
+            timer.gameObject.SetActive(false);
+            PowerUp.gameObject.SetActive(false);
             menu.gameObject.SetActive(false);
             Time.timeScale = 0;
         }

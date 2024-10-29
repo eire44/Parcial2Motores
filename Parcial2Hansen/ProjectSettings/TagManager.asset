@@ -7,7 +7,6 @@ TagManager:
   - PUvelocidad
   - PUlento
   - PUcampo
-  - PUsalto
   - Puerta
   - EneVeloz
   - Piso
@@ -17,6 +16,7 @@ TagManager:
   - CampoProtector
   - EnemigoSaltador
   - EnemigoSaltadorClon
+  - PUtripleDisparo
   layers:
   - Default
   - TransparentFX

@@ -37,7 +37,6 @@ public class SaltoEnemigo : MonoBehaviour
 
     void Jump()
     {
-        // Generar una dirección aleatoria
         Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 1f, Random.Range(-1f, 1f)).normalized;
         //Vector3 randomDirection = Vector3.up; Para que solo salte hacia arriba, ignorando los ejes x y z
         
