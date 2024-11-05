@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
     public GameObject victoria;
     public Text timer;
     public Text PowerUp;
+    public GameObject puertaNivel;
 
     public Button menu;
     // Start is called before the first frame update
@@ -29,6 +30,17 @@ public class SceneController : MonoBehaviour
         }
 
         if(!eneV.gameObject.activeInHierarchy && !eneS.gameObject.activeInHierarchy && !eneT.gameObject.activeInHierarchy)
+        {
+            if(puertaNivel.transform.rotation == Quaternion.Euler(0, 90, 0))
+            {
+                puertaNivel.SetActive(false);
+                //puertaNivel.transform.Rotate(0, 90, 0);
+                //puertaNivel.transform.position = new Vector3(0f, 5.844141f, 10f);
+            }
+            
+        }
+
+        if(0 == 1)
         {
             victoria.SetActive(true);
             menu.gameObject.SetActive(false);

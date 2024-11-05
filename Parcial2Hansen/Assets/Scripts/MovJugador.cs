@@ -32,6 +32,8 @@ public class MovJugador : MonoBehaviour
 
     public GameObject gameOver;
     public Button menu;
+
+    public GameObject camara;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +45,26 @@ public class MovJugador : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(inputX * velocidad, 0.0f, inputY * velocidad);
-        rb.velocity = movement;
+        Vector3 movement = new Vector3(inputX, 0.0f, inputY).normalized;
+        rb.velocity = movement * velocidad;
 
         if (movement != Vector3.zero)
         {
-            transform.forward = movement;
+            Vector3 forward = camara.transform.forward;
+            Vector3 right = camara.transform.right;
+
+            forward.y = 0;
+            right.y = 0;
+
+            forward.Normalize();
+            right.Normalize();
+
+            Vector3 moveDirection = forward * movement.z + right * movement.x;
+
+            rb.velocity = moveDirection * velocidad;
+
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, velocidad * Time.deltaTime);
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && enElPiso)
