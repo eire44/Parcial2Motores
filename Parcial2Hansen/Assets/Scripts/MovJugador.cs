@@ -34,6 +34,15 @@ public class MovJugador : MonoBehaviour
     public Button menu;
 
     public GameObject camara;
+
+    public GameObject puVelocidadN1;
+    public GameObject puCampoN1;
+    public GameObject puLentitudN1;
+    public GameObject puTripleDisparoN1;
+    private bool velActN1 = false;
+    private bool lenActN1 = false;
+    private bool camActN1 = false;
+    private bool salActN1 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +93,10 @@ public class MovJugador : MonoBehaviour
             puLentitud.SetActive(false);
             puTripleDisparo.SetActive(false);
             puVelocidad.SetActive(false);
+            puCampoN1.SetActive(false);
+            puLentitudN1.SetActive(false);
+            puTripleDisparoN1.SetActive(false);
+            puVelocidadN1.SetActive(false);
         }
         else
         {
@@ -103,6 +116,22 @@ public class MovJugador : MonoBehaviour
             {
                 puLentitud.SetActive(true);
             }
+            if (velActN1 == true)
+            {
+                puVelocidadN1.SetActive(true);
+            }
+            if (camActN1 == true)
+            {
+                puCampoN1.SetActive(true);
+            }
+            if (salActN1 == true)
+            {
+                puTripleDisparoN1.SetActive(true);
+            }
+            if (lenActN1 == true)
+            {
+                puLentitudN1.SetActive(true);
+            }
 
             PowerUp.gameObject.SetActive(false);
         }
@@ -117,12 +146,12 @@ public class MovJugador : MonoBehaviour
             campoProtector.SetActive(false);
             flag.gameObject.SetActive(false);
         }
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "PUvelocidad")
+        if(collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
         {
             velocidad = velocidad * 2;
             collision.gameObject.SetActive(false);
@@ -131,7 +160,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "¡Velocidad turbo activada!";
 
-        } else if (collision.gameObject.tag == "PUlento")
+        } else if (collision.gameObject.tag == "PUlento" || collision.gameObject.tag == "PUlentoN1")
         {
             velocidad = 5;
             collision.gameObject.SetActive(false);
@@ -141,7 +170,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.text = "Velocidad nivel tortuga activada. No debiste hacer eso...";
 
         }
-        else if (collision.gameObject.tag == "PUtripleDisparo")
+        else if (collision.gameObject.tag == "PUtripleDisparo" || collision.gameObject.tag == "PUtripleDisparoN1")
         {
             flag.gameObject.SetActive(true);
             collision.gameObject.SetActive(false);
@@ -151,7 +180,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.text = "Desbloqueaste otro disparo, ¡te servirá contra los clones!";
 
         }
-        else if (collision.gameObject.tag == "PUcampo")
+        else if (collision.gameObject.tag == "PUcampo" || collision.gameObject.tag == "PUcampoN1")
         {
             campoProtector.SetActive(true);
             collision.gameObject.SetActive(false);
@@ -160,23 +189,25 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
-        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon")
+        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || 
+            collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico")
         {
+            Time.timeScale = 0;
             gameOver.gameObject.SetActive(true);
             timer.gameObject.SetActive(false);
             PowerUp.gameObject.SetActive(false);
             menu.gameObject.SetActive(false);
-            Time.timeScale = 0;
         }
-        else if (collision.gameObject.tag == "Piso")
+        else if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "Cama" || collision.gameObject.tag == "Escritorio")
         {
             enElPiso = true;
         }
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Piso")
+        if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "Cama" || collision.gameObject.tag == "Escritorio")
         {
             enElPiso = false;
         }
@@ -214,6 +245,42 @@ public class MovJugador : MonoBehaviour
         } else
         {
             lenAct = false;
+        }
+
+        if (puVelocidadN1.activeInHierarchy)
+        {
+            velActN1 = true;
+        }
+        else
+        {
+            velActN1 = false;
+        }
+
+        if (puCampoN1.activeInHierarchy)
+        {
+            camActN1 = true;
+        }
+        else
+        {
+            camActN1 = false;
+        }
+
+        if (puTripleDisparoN1.activeInHierarchy)
+        {
+            salActN1 = true;
+        }
+        else
+        {
+            salActN1 = false;
+        }
+
+        if (puLentitudN1.activeInHierarchy)
+        {
+            lenActN1 = true;
+        }
+        else
+        {
+            lenActN1 = false;
         }
     }
 }

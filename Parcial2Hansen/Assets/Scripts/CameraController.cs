@@ -16,14 +16,24 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensibilidad;
-        float mouseY = Input.GetAxis("Mouse Y") * sensibilidad;
-        
-        rotacion -= mouseY;
-        rotacion = Mathf.Clamp(rotacion, -90f, 90f);
+        if(Time.timeScale == 1)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
-        transform.localRotation = Quaternion.Euler(rotacion, 0f, 0f);
-        jugador.transform.Rotate(Vector3.up * mouseX);
-        //transform.position = new Vector3(jugador.transform.position.x, jugador.transform.position.y + 5, jugador.transform.position.z -5);
+            float mouseX = Input.GetAxis("Mouse X") * sensibilidad;
+            float mouseY = Input.GetAxis("Mouse Y") * sensibilidad;
+
+            rotacion -= mouseY;
+            rotacion = Mathf.Clamp(rotacion, -90f, 90f);
+
+            transform.localRotation = Quaternion.Euler(rotacion, 0f, 0f);
+            jugador.transform.Rotate(Vector3.up * mouseX);
+            //transform.position = new Vector3(jugador.transform.position.x, jugador.transform.position.y + 5, jugador.transform.position.z -5);
+        } else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

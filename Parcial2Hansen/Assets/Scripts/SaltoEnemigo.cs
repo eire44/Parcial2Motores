@@ -26,13 +26,11 @@ public class SaltoEnemigo : MonoBehaviour
 
                 if (timer >= 1.5f)
                 {
-
                     Clonar();
                     contadorClones++;
                     timer = 0f;
                 }
             }
-        
     }
 
     void Jump()

@@ -17,6 +17,14 @@ TagManager:
   - EnemigoSaltador
   - EnemigoSaltadorClon
   - PUtripleDisparo
+  - EnemigoMagnetico
+  - Cama
+  - Escritorio
+  - PuertaLab
+  - PUvelocidadN1
+  - PUlentoN1
+  - PUcampoN1
+  - PUtripleDisparoN1
   layers:
   - Default
   - TransparentFX
