@@ -25,6 +25,8 @@ TagManager:
   - PUlentoN1
   - PUcampoN1
   - PUtripleDisparoN1
+  - EnemigoTeletransportador
+  - PuertaSalida
   layers:
   - Default
   - TransparentFX

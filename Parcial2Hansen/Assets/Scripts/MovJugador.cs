@@ -43,6 +43,8 @@ public class MovJugador : MonoBehaviour
     private bool lenActN1 = false;
     private bool camActN1 = false;
     private bool salActN1 = false;
+
+    public GameObject llaveCopia;
     // Start is called before the first frame update
     void Start()
     {
@@ -189,7 +191,7 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
-        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || 
+        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" ||
             collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico")
         {
             Time.timeScale = 0;
@@ -201,6 +203,11 @@ public class MovJugador : MonoBehaviour
         else if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "Cama" || collision.gameObject.tag == "Escritorio")
         {
             enElPiso = true;
+        }
+        else if(collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy)
+        {
+            llaveCopia.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
 
     }

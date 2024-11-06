@@ -15,6 +15,15 @@ public class SceneController : MonoBehaviour
     public GameObject puertaNivel;
 
     public Button menu;
+
+
+    public GameObject eneVN1;
+    public GameObject eneSN1;
+    public GameObject eneTN1;
+    public GameObject eneMN1;
+    public GameObject eneTelN1;
+
+    public GameObject puertaFinal;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +49,8 @@ public class SceneController : MonoBehaviour
             
         }
 
-        if(0 == 1)
+        if(!eneVN1.gameObject.activeInHierarchy && !eneSN1.gameObject.activeInHierarchy && !eneTN1.gameObject.activeInHierarchy 
+            && !eneMN1.gameObject.activeInHierarchy && !eneTelN1.gameObject.activeInHierarchy && !puertaFinal.activeInHierarchy)
         {
             victoria.SetActive(true);
             menu.gameObject.SetActive(false);

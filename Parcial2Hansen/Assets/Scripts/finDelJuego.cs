@@ -34,7 +34,7 @@ public class finDelJuego : MonoBehaviour
 
         comenzar.onClick.AddListener(comenzarJ);
 
-        menu.onClick.AddListener(abrirMenu);
+        //menu.onClick.AddListener(abrirMenu);
         salirM.onClick.AddListener(salirDelJuego);
         salirP.onClick.AddListener(salirDelJuego);
         salirV.onClick.AddListener(salirDelJuego);
@@ -46,7 +46,10 @@ public class finDelJuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            abrirMenu();
+        }
     }
 
 

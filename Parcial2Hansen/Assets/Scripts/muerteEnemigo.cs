@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class muerteEnemigo : MonoBehaviour
@@ -20,6 +21,14 @@ public class muerteEnemigo : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bala")
         {
+            if(gameObject.CompareTag("EnemigoTeletransportador"))
+            {
+                foreach (Transform hijo in transform)
+                {
+                    hijo.SetParent(null);
+                    hijo.AddComponent<Rigidbody>();
+                }
+            }
             gameObject.SetActive(false);
         }
     }
