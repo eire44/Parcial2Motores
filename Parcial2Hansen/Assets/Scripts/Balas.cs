@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Balas : MonoBehaviour
 {
+    public GameObject flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +42,16 @@ public class Balas : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
+
+        if(collision.gameObject.CompareTag("EnemigoMagnetico"))
+        {
+            Debug.Log("COLISION BALA Y ENEMIGO");
+            if(flag.activeInHierarchy)
+            {
+                collision.gameObject.SetActive(false);
+                Debug.Log("DESACTIVADO");
+            }
+        }
     }
+
 }

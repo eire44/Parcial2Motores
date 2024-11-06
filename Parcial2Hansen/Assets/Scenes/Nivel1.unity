@@ -3561,7 +3561,6 @@ GameObject:
   - component: {fileID: 471873280}
   - component: {fileID: 471873279}
   - component: {fileID: 471873278}
-  - component: {fileID: 471873281}
   m_Layer: 0
   m_Name: EnemigoMagnetico
   m_TagString: EnemigoMagnetico
@@ -3658,18 +3657,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471873276}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &471873281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471873276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 343fb604833413f479f5603e6a033b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &496278390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4437,7 @@ GameObject:
   - component: {fileID: 549009874}
   m_Layer: 0
   m_Name: Puerta3 (6)
-  m_TagString: Puerta
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4739,7 +4726,7 @@ GameObject:
   - component: {fileID: 596110623}
   m_Layer: 0
   m_Name: Puerta3 (7)
-  m_TagString: Puerta
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9259,6 +9246,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299680698}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1307826289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307826290}
+  m_Layer: 0
+  m_Name: FlagHabilitadorMagnetico
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1307826290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307826289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6910107, y: 7.361891, z: 45.575233}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322856923
 GameObject:
   m_ObjectHideFlags: 0
@@ -9737,7 +9755,7 @@ GameObject:
   - component: {fileID: 1430923348}
   m_Layer: 0
   m_Name: Puerta3 (5)
-  m_TagString: Puerta
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10312,7 +10330,7 @@ GameObject:
   - component: {fileID: 1538593750}
   m_Layer: 0
   m_Name: Puerta3 (4)
-  m_TagString: Puerta
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10418,7 +10436,7 @@ GameObject:
   - component: {fileID: 1539960044}
   m_Layer: 0
   m_Name: MagneticField
-  m_TagString: Untagged
+  m_TagString: CampoMagnetico
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10503,6 +10521,7 @@ MonoBehaviour:
   jugador: {fileID: 1177364576}
   enemigo: {fileID: 471873276}
   velocidad: 10
+  flag: {fileID: 1307826289}
 --- !u!64 &1539960044
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11051,6 +11070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7448b87b9afd3cf45bc2c31f6ae9782b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: {fileID: 1307826289}
 --- !u!1 &1674123387
 GameObject:
   m_ObjectHideFlags: 0
@@ -13863,7 +13883,7 @@ GameObject:
   - component: {fileID: 2118785190}
   m_Layer: 0
   m_Name: Puerta3 (3)
-  m_TagString: Puerta
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14121,3 +14141,4 @@ SceneRoots:
   - {fileID: 1692456524}
   - {fileID: 1844650166}
   - {fileID: 917792357}
+  - {fileID: 1307826290}

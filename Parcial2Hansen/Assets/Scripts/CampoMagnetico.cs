@@ -8,6 +8,8 @@ public class CampoMagnetico : MonoBehaviour
     public GameObject jugador;
     public GameObject enemigo;
     public int velocidad;
+    public GameObject flag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class CampoMagnetico : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             dentroDelCampo = true;
+            flag.SetActive(true);
         }
     }
+
 }

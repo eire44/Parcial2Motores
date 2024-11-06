@@ -27,6 +27,7 @@ TagManager:
   - PUtripleDisparoN1
   - EnemigoTeletransportador
   - PuertaSalida
+  - CampoMagnetico
   layers:
   - Default
   - TransparentFX
