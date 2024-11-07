@@ -24,6 +24,7 @@ public class SceneController : MonoBehaviour
     public GameObject eneTelN1;
 
     public GameObject puertaFinal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,7 @@ public class SceneController : MonoBehaviour
             timer.gameObject.SetActive(false);
             Time.timeScale = 0;
         }
-    }
 
+    }
+    
 }
