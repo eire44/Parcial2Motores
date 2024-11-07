@@ -45,6 +45,7 @@ public class MovJugador : MonoBehaviour
     private bool salActN1 = false;
 
     public GameObject llaveCopia;
+    public Text enemigos;
     // Start is called before the first frame update
     void Start()
     {
@@ -153,7 +154,7 @@ public class MovJugador : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
+        if (collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
         {
             velocidad = velocidad * 2;
             collision.gameObject.SetActive(false);
@@ -162,7 +163,8 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "¡Velocidad turbo activada!";
 
-        } else if (collision.gameObject.tag == "PUlento" || collision.gameObject.tag == "PUlentoN1")
+        }
+        else if (collision.gameObject.tag == "PUlento" || collision.gameObject.tag == "PUlentoN1")
         {
             velocidad = 5;
             collision.gameObject.SetActive(false);
@@ -191,7 +193,8 @@ public class MovJugador : MonoBehaviour
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
-        } else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" ||
+        }
+        else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" ||
             collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico")
         {
             Time.timeScale = 0;
@@ -199,12 +202,13 @@ public class MovJugador : MonoBehaviour
             timer.gameObject.SetActive(false);
             PowerUp.gameObject.SetActive(false);
             menu.gameObject.SetActive(false);
+            enemigos.gameObject.SetActive(false);
         }
-        else if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "Cama" || collision.gameObject.tag == "Escritorio")
+        else if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
         {
-            enElPiso = true;
+            enElPiso = true;  
         }
-        else if(collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy)
+        else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy)
         {
             llaveCopia.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
@@ -214,7 +218,7 @@ public class MovJugador : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "Cama" || collision.gameObject.tag == "Escritorio")
+        if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
         {
             enElPiso = false;
         }

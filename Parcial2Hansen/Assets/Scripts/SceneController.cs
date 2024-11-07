@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
     public GameObject victoria;
     public Text timer;
     public Text PowerUp;
+    public Text enemigos;
     public GameObject puertaNivel;
 
     public Button menu;
@@ -59,6 +60,7 @@ public class SceneController : MonoBehaviour
             menu.gameObject.SetActive(false);
             PowerUp.gameObject.SetActive(false);
             timer.gameObject.SetActive(false);
+            enemigos.gameObject.SetActive(false);
             Time.timeScale = 0;
         }
 

@@ -8,6 +8,9 @@ public class ContadorEnemigos : MonoBehaviour
     public Text enemigos;
     List<GameObject> listaEnemigos = new List<GameObject>();
     List<GameObject> listaEnemigosClonada = new List<GameObject>();
+    List<GameObject> listaEnemigosN1 = new List<GameObject>();
+    public GameObject nivel1;
+    private int cantidad;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,10 @@ public class ContadorEnemigos : MonoBehaviour
             if (o.layer == 7)
             {
                 listaEnemigos.Add(o);
+            }
+            if (o.layer == 8 && o.gameObject.tag != "Llave" && o.gameObject.tag != "CampoMagnetico")
+            {
+                listaEnemigosN1.Add(o);
             }
         }
         //listaEnemigosClonada = listaEnemigos;
@@ -32,17 +39,33 @@ public class ContadorEnemigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        listaEnemigosClonada.Clear();
-        foreach (GameObject enemigo in listaEnemigos)
+        if(nivel1.activeInHierarchy)
         {
-            if (enemigo.activeInHierarchy)
+            listaEnemigosClonada.Clear();
+            foreach (GameObject enemigo in listaEnemigos)
             {
-                listaEnemigosClonada.Add(enemigo);
-            }
+                if (enemigo.activeInHierarchy)
+                {
+                    listaEnemigosClonada.Add(enemigo);
+                }
 
-            
+            }
+            cantidad = listaEnemigos.Count;
+        } else
+        {
+            listaEnemigosClonada.Clear();
+            foreach (GameObject enemigo in listaEnemigosN1)
+            {
+                if (enemigo.activeInHierarchy)
+                {
+                    listaEnemigosClonada.Add(enemigo);
+                }
+
+            }
+            cantidad = listaEnemigosN1.Count;
         }
-        enemigos.text = "Enemigos: " + listaEnemigosClonada.Count + "/3";
+
+        enemigos.text = "Enemigos: " + listaEnemigosClonada.Count + "/" + cantidad;
     }
 
 }

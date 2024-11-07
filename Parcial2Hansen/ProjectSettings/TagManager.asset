@@ -28,6 +28,8 @@ TagManager:
   - EnemigoTeletransportador
   - PuertaSalida
   - CampoMagnetico
+  - Llave
+  - HabilitarSalto
   layers:
   - Default
   - TransparentFX

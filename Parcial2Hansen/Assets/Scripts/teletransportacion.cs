@@ -11,7 +11,7 @@ public class teletransportacion : MonoBehaviour
     public GameObject posicion5;
 
 
-    private float tiempo = 3f;
+    private float tiempo = 2.3f;
     private int iterador = 0;
 
     // Start is called before the first frame update

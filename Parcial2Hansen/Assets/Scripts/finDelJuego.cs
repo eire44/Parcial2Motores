@@ -23,7 +23,7 @@ public class finDelJuego : MonoBehaviour
     public Button comenzar;
     public Button menu;
 
-    
+    public Text enemigos;
     void Start()
     {
         Time.timeScale = 0;
@@ -62,6 +62,7 @@ public class finDelJuego : MonoBehaviour
     {
         inicio.SetActive(false);
         menu.gameObject.SetActive(true);
+        enemigos.gameObject.SetActive(true);
         Time.timeScale = 1;
     }
 
