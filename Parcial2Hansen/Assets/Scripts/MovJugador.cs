@@ -156,7 +156,7 @@ public class MovJugador : MonoBehaviour
     {
         if (collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
         {
-            velocidad = velocidad * 2;
+            velocidad = velocidad * 2.5f;
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
