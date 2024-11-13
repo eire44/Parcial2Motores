@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public Transform jugador;
-    private int velocidad = 40;
+    private int velocidad = 35;
     public GameObject puerta;
     // Start is called before the first frame update
     void Start()

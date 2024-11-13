@@ -14,6 +14,10 @@ public class finDelJuego : MonoBehaviour
     public Button reiniciarM;
     public Button reiniciarP;
 
+    public Button instruccionesM;
+    public GameObject instrucciones;
+    public Button volverInstrucciones;
+
     public Button reanudar;
     public Button salirM;
     public Button salirV;
@@ -41,6 +45,8 @@ public class finDelJuego : MonoBehaviour
         salirI.onClick.AddListener(salirDelJuego);
 
         reanudar.onClick.AddListener(cerrarMenu);
+        instruccionesM.onClick.AddListener(mostrarInstrucciones);
+        volverInstrucciones.onClick.AddListener(cerrarInstrucciones);
     }
 
     // Update is called once per frame
@@ -88,5 +94,17 @@ public class finDelJuego : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    void mostrarInstrucciones()
+    {
+        menuPrincipal.SetActive(false);
+        instrucciones.SetActive(true);
+    }
+
+    void cerrarInstrucciones()
+    {
+        menuPrincipal.SetActive(true);
+        instrucciones.SetActive(false);
     }
 }
