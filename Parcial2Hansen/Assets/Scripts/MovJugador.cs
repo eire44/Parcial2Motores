@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -46,6 +48,13 @@ public class MovJugador : MonoBehaviour
 
     public GameObject llaveCopia;
     public Text enemigos;
+
+
+    public Volume globalVolume;
+    private MotionBlur blur;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -148,6 +157,14 @@ public class MovJugador : MonoBehaviour
             velocidad = 20;
             campoProtector.SetActive(false);
             flag.gameObject.SetActive(false);
+
+            if (globalVolume.profile != null)
+            {
+                if (globalVolume.profile.TryGet(out blur))
+                {
+                    blur.active = false;
+                }
+            }
         }
 
     }
@@ -156,13 +173,19 @@ public class MovJugador : MonoBehaviour
     {
         if (collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
         {
-            velocidad = velocidad * 2f;
+            velocidad = velocidad * 1.5f;
             collision.gameObject.SetActive(false);
             estadoPU();
             timer.gameObject.SetActive(true);
             PowerUp.gameObject.SetActive(true);
             PowerUp.text = "¡Velocidad turbo activada!";
-
+            if (globalVolume.profile != null)
+            {
+                if (globalVolume.profile.TryGet(out blur))
+                {
+                    blur.active = true;
+                }
+            }
         }
         else if (collision.gameObject.tag == "PUlento" || collision.gameObject.tag == "PUlentoN1")
         {
