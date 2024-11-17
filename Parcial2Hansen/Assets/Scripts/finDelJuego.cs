@@ -63,14 +63,14 @@ public class finDelJuego : MonoBehaviour
 
     void reiniciar()
     {
-        if (pasoNivel.activeInHierarchy)
-        {
+        //if (pasoNivel.activeInHierarchy)
+        //{
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (!pasoNivel.activeInHierarchy)
-        {
-            jugador.transform.position = new Vector3(pasoNivel.transform.position.x, jugador.transform.position.y, pasoNivel.transform.position.z);
-        }
+        //}
+        //else if (!pasoNivel.activeInHierarchy)
+        //{
+        //    jugador.transform.position = new Vector3(pasoNivel.transform.position.x, jugador.transform.position.y, pasoNivel.transform.position.z);
+        //}
     }
 
     void comenzarJ()

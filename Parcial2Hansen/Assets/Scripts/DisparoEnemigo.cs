@@ -23,7 +23,7 @@ public class DisparoEnemigo : MonoBehaviour
     {
         if(!puerta.gameObject.activeInHierarchy)
         {
-            Vector3 centro = new Vector3(0, 1.2f, -6.5f);
+            Vector3 centro = new Vector3(0, 2.25f, -6.5f);
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, centro, velocidad * Time.deltaTime);
 
 
