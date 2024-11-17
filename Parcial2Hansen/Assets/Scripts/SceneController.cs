@@ -26,6 +26,9 @@ public class SceneController : MonoBehaviour
 
     public GameObject puertaFinal;
 
+    public GameObject jugador;
+    public GameObject pasoNivel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +38,12 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetKey(KeyCode.R) && pasoNivel.activeInHierarchy)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else if (Input.GetKey(KeyCode.R) && !pasoNivel.activeInHierarchy)
+        {
+            jugador.transform.position = new Vector3(pasoNivel.transform.position.x, jugador.transform.position.y, pasoNivel.transform.position.z);
         }
 
         if(!eneV.gameObject.activeInHierarchy && !eneS.gameObject.activeInHierarchy && !eneT.gameObject.activeInHierarchy)

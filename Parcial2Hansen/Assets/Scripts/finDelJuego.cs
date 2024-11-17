@@ -28,6 +28,9 @@ public class finDelJuego : MonoBehaviour
     public Button menu;
 
     public Text enemigos;
+
+    public GameObject pasoNivel;
+    public GameObject jugador;
     void Start()
     {
         Time.timeScale = 0;
@@ -38,7 +41,6 @@ public class finDelJuego : MonoBehaviour
 
         comenzar.onClick.AddListener(comenzarJ);
 
-        //menu.onClick.AddListener(abrirMenu);
         salirM.onClick.AddListener(salirDelJuego);
         salirP.onClick.AddListener(salirDelJuego);
         salirV.onClick.AddListener(salirDelJuego);
@@ -61,7 +63,14 @@ public class finDelJuego : MonoBehaviour
 
     void reiniciar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (pasoNivel.activeInHierarchy)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (!pasoNivel.activeInHierarchy)
+        {
+            jugador.transform.position = new Vector3(pasoNivel.transform.position.x, jugador.transform.position.y, pasoNivel.transform.position.z);
+        }
     }
 
     void comenzarJ()
