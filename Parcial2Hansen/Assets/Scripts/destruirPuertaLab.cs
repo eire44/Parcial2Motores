@@ -21,6 +21,7 @@ public class destruirPuertaLab : MonoBehaviour
         if(collision.gameObject.CompareTag("BalasDelEnemigo"))
         {
             gameObject.SetActive(false);
+            Debug.Log(collision.gameObject.name);
         }
     }
 }
