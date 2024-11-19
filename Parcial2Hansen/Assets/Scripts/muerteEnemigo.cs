@@ -27,6 +27,7 @@ public class muerteEnemigo : MonoBehaviour
                 foreach (Transform hijo in transform)
                 {
                     hijo.SetParent(null);
+                    Debug.Log(hijo);
                     hijo.AddComponent<Rigidbody>();
                 }
             }
