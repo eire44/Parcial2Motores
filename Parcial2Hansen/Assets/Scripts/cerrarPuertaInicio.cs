@@ -5,12 +5,11 @@ using UnityEngine;
 public class cerrarPuertaInicio : MonoBehaviour
 {
     public GameObject puerta;
-    Vector3 posicionOriginal;
+    public GameObject ventana;
 
     // Start is called before the first frame update
     void Start()
     {
-        posicionOriginal = puerta.transform.position;
     }
 
     // Update is called once per frame
@@ -23,8 +22,10 @@ public class cerrarPuertaInicio : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            puerta.transform.position = posicionOriginal;
-            puerta.transform.Rotate(0, 90, 0);
+            Debug.Log("Puerta activa: " + puerta.activeSelf);
+            Debug.Log("Ventana activa: " + ventana.activeSelf);
+            puerta.SetActive(true);
+            ventana.SetActive(true);
             gameObject.SetActive(false);
         }
     }

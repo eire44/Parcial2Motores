@@ -15,6 +15,7 @@ public class SceneController : MonoBehaviour
     public Text enemigos;
     public GameObject puertaNivel;
 
+    public GameObject ventanaPuertaNivel;
     public Button menu;
 
 
@@ -49,15 +50,9 @@ public class SceneController : MonoBehaviour
 
         if(!eneV.gameObject.activeInHierarchy && !eneS.gameObject.activeInHierarchy && !eneT.gameObject.activeInHierarchy)
         {
-            if(puertaNivel.transform.rotation == Quaternion.Euler(0, 90, 0))
-            {
-                //puertaNivel.SetActive(false);
-                //eneSN1.gameObject.SetActive(true); Porqué si hago esto después no puedo matar al enemigo?
-                //Debug.Log(eneSN1.activeInHierarchy);
-                puertaNivel.transform.Rotate(0, 90, 0);
-                puertaNivel.transform.position = new Vector3(3f, 3.490082f, 27f);
-            }
-            
+            puertaNivel.SetActive(false);
+            ventanaPuertaNivel.SetActive(false);
+
         }
 
         if(!eneVN1.gameObject.activeInHierarchy && !eneSN1.gameObject.activeInHierarchy && !eneTN1.gameObject.activeInHierarchy 
