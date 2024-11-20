@@ -217,8 +217,8 @@ public class MovJugador : MonoBehaviour
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
         }
-        else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" ||
-            collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico")
+        else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" || collision.gameObject.tag == "Acido" ||
+            collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico" || collision.gameObject.tag == "Fuego")
         {
             Time.timeScale = 0;
             gameOver.gameObject.SetActive(true);

@@ -30,6 +30,8 @@ TagManager:
   - CampoMagnetico
   - Llave
   - HabilitarSalto
+  - Fuego
+  - Acido
   layers:
   - Default
   - TransparentFX

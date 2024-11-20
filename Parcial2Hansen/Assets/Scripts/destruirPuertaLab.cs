@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class destruirPuertaLab : MonoBehaviour
 {
+    public GameObject cartel1;
+    public GameObject cartel2;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,9 @@ public class destruirPuertaLab : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("BalasDelEnemigo"))
         {
+            cartel1.SetActive(false);
+            cartel2.SetActive(false);
             gameObject.SetActive(false);
-            Debug.Log(collision.gameObject.name);
         }
     }
 }
