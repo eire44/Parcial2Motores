@@ -14054,7 +14054,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -26}
-  m_SizeDelta: {x: 866, y: 160}
+  m_SizeDelta: {x: 732, y: 206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969390451
 MonoBehaviour:
@@ -14103,11 +14103,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1Los mutantes escaparon de sus celdas! Deshazte de ellos antes de que
-    causen m\xE1s destrozos. \n\nMuevete con las teclas W, A, S, D y dispara con
-    la F para defenderte. \nPuedes reiniciar el juego con la R y abrir el Menu con
-    la M.\n\nUna vez que liberes la zona, busca la llave y huye de aqu\xED.\nQuiz\xE1s
-    te ayude tomar c\xE1psulas de poder, te pondr\xE1 a su nivel por un tiempo."
+  m_Text: "Lograste infiltrarte en el hospital de los mutantes, pero \xA1Cuidado!
+    muchos de ellos \nhan escapado y est\xE1n haciendo destrozos. Deshazte de ellos
+    antes de que \nsea demasiado tarde. Recuerda que todos sus poderes son mortales.\n\nUna
+    vez que liberes la zona, busca la llave y huye de aqu\xED.\nQuiz\xE1s te ayude
+    tomar c\xE1psulas de poder, te pondr\xE1 a su nivel por un tiempo.\n\nMuevete
+    con las teclas W, A, S, D y dispara con la F para defenderte. \nPuedes reiniciar
+    el juego con la R y abrir el Menu con la M."
 --- !u!222 &969390453
 CanvasRenderer:
   m_ObjectHideFlags: 0
