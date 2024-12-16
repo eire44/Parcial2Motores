@@ -32,17 +32,17 @@ public class DisparoEnemigo : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, velocidadRotacion * Time.deltaTime);
             
 
-            if (gameObject.transform.position == centro)
-            {
+            //if (gameObject.transform.position == centro)
+            //{
                 timer += Time.deltaTime;
 
-                if (timer >= 1f)
+                if (timer >= 0.6f)
                 {
                     disparar();
                     timer = 0f;
                 }
 
-            }
+            //}
         }
     }
 

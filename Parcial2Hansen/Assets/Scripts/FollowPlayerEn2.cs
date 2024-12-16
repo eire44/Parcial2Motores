@@ -32,7 +32,7 @@ public class FollowPlayerEn2 : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, posJugador, velocidad * Time.deltaTime);
             timer += Time.deltaTime;
 
-            if (timer >= 1f)
+            if (timer >= 0.6f)
             {
                 disparar();
                 timer = 0f;

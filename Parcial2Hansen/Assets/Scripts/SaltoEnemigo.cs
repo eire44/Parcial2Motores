@@ -24,7 +24,7 @@ public class SaltoEnemigo : MonoBehaviour
             {
                 timer += Time.deltaTime;
 
-                if (timer >= 1.5f)
+                if (timer >= 1.3f)
                 {
                     Clonar();
                     contadorClones++;

@@ -9,6 +9,7 @@ public class finDelJuego : MonoBehaviour
 {
     public GameObject inicio;
     public GameObject menuPrincipal;
+    public Button instruccionesI;
 
     public Button reiniciarV;
     public Button reiniciarM;
@@ -31,9 +32,13 @@ public class finDelJuego : MonoBehaviour
 
     public GameObject pasoNivel;
     public GameObject jugador;
+
+    private GameObject interfazActual;
     void Start()
     {
         Time.timeScale = 0;
+
+        instruccionesI.onClick.AddListener(mostrarInstruccionesI);
 
         reiniciarV.onClick.AddListener(reiniciar);
         reiniciarP.onClick.AddListener(reiniciar);
@@ -107,13 +112,29 @@ public class finDelJuego : MonoBehaviour
 
     void mostrarInstrucciones()
     {
+        interfazActual = menuPrincipal;
         menuPrincipal.SetActive(false);
         instrucciones.SetActive(true);
     }
 
     void cerrarInstrucciones()
     {
-        menuPrincipal.SetActive(true);
+        if(interfazActual == menuPrincipal)
+        {
+            menuPrincipal.SetActive(true);
+        }
+        if (interfazActual == inicio)
+        {
+            inicio.SetActive(true);
+        }
         instrucciones.SetActive(false);
     }
+
+    void mostrarInstruccionesI()
+    {
+        interfazActual = inicio;
+        inicio.SetActive(false);
+        instrucciones.SetActive(true);
+    }
+
 }

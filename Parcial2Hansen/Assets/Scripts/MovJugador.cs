@@ -16,7 +16,7 @@ public class MovJugador : MonoBehaviour
     private float fuerzaDeSalto = 300f;
 
     public Text timer;
-    private float tiempo = 20f;
+    private float tiempo = 15f;
 
     public GameObject flag;
 
@@ -152,7 +152,7 @@ public class MovJugador : MonoBehaviour
         if (tiempo <= 0)
         {
             timer.gameObject.SetActive(false);
-            tiempo = 20;
+            tiempo = 15;
 
             velocidad = 20;
             campoProtector.SetActive(false);
