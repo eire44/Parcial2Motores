@@ -21,6 +21,7 @@ public class MovJugador : MonoBehaviour
     public GameObject flag;
 
     public Text PowerUp;
+    public Text puertaMensaje;
 
     public GameObject puVelocidad;
     public GameObject puCampo;
@@ -53,7 +54,7 @@ public class MovJugador : MonoBehaviour
     public Volume globalVolume;
     private MotionBlur blur;
 
-
+    public GameObject flagPuertaFinal;
 
     // Start is called before the first frame update
     void Start()
@@ -227,14 +228,19 @@ public class MovJugador : MonoBehaviour
             menu.gameObject.SetActive(false);
             enemigos.gameObject.SetActive(false);
         }
-        else if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
-        {
-            enElPiso = true;  
-        }
-        else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy)
+        else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && flagPuertaFinal.activeInHierarchy)
         {
             llaveCopia.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && !flagPuertaFinal.activeInHierarchy)
+        {
+            puertaMensaje.gameObject.SetActive(true);
+            puertaMensaje.text = "Deshazte de tus enemigos primero.";
+        }
+        if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
+        {
+            enElPiso = true;
         }
 
     }
@@ -244,6 +250,10 @@ public class MovJugador : MonoBehaviour
         if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
         {
             enElPiso = false;
+        }
+        else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && !flagPuertaFinal.activeInHierarchy)
+        {
+            puertaMensaje.gameObject.SetActive(false);
         }
     }
 

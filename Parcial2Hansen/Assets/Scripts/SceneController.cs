@@ -30,6 +30,8 @@ public class SceneController : MonoBehaviour
     public GameObject jugador;
     public GameObject pasoNivel;
 
+    public GameObject flagPuertaFinal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,14 +58,20 @@ public class SceneController : MonoBehaviour
         }
 
         if(!eneVN1.gameObject.activeInHierarchy && !eneSN1.gameObject.activeInHierarchy && !eneTN1.gameObject.activeInHierarchy 
-            && !eneMN1.gameObject.activeInHierarchy && !eneTelN1.gameObject.activeInHierarchy && !puertaFinal.activeInHierarchy)
+            && !eneMN1.gameObject.activeInHierarchy && !eneTelN1.gameObject.activeInHierarchy)
         {
-            victoria.SetActive(true);
-            menu.gameObject.SetActive(false);
-            PowerUp.gameObject.SetActive(false);
-            timer.gameObject.SetActive(false);
-            enemigos.gameObject.SetActive(false);
-            Time.timeScale = 0;
+            flagPuertaFinal.SetActive(true);
+
+            if(!puertaFinal.activeInHierarchy)
+            {
+                victoria.SetActive(true);
+                menu.gameObject.SetActive(false);
+                PowerUp.gameObject.SetActive(false);
+                timer.gameObject.SetActive(false);
+                enemigos.gameObject.SetActive(false);
+                Time.timeScale = 0;
+
+            }
         }
 
     }

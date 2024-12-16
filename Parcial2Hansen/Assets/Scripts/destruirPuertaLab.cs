@@ -6,6 +6,7 @@ public class destruirPuertaLab : MonoBehaviour
 {
     public GameObject cartel1;
     public GameObject cartel2;
+    public GameObject puerta;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class destruirPuertaLab : MonoBehaviour
         {
             cartel1.SetActive(false);
             cartel2.SetActive(false);
-            gameObject.SetActive(false);
+            puerta.SetActive(false);
         }
     }
 }

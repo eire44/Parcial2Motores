@@ -22,8 +22,6 @@ public class cerrarPuertaInicio : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Puerta activa: " + puerta.activeSelf);
-            Debug.Log("Ventana activa: " + ventana.activeSelf);
             puerta.SetActive(true);
             ventana.SetActive(true);
             gameObject.SetActive(false);
