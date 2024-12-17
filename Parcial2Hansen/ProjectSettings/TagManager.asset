@@ -34,6 +34,9 @@ TagManager:
   - Acido
   - Caja Fuerte
   - PuertaSalidaFinal
+  - PUPequeno
+  - EnemigoFinal
+  - PUGrande
   layers:
   - Default
   - TransparentFX

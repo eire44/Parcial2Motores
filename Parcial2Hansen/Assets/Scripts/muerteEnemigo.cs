@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class muerteEnemigo : MonoBehaviour
 {
+    private int contadorVidas = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,21 @@ public class muerteEnemigo : MonoBehaviour
                 }
             }
 
-            gameObject.SetActive(false);
+            if (gameObject.CompareTag("EnemigoFinal"))
+            {
+                contadorVidas++;
+
+                if(contadorVidas >= 5)
+                {
+
+                    gameObject.SetActive(false);
+                }
+            } else
+            {
+                gameObject.SetActive(false);
+
+            }
+
 
         }
     }

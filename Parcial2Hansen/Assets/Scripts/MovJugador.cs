@@ -27,10 +27,14 @@ public class MovJugador : MonoBehaviour
     public GameObject puCampo;
     public GameObject puLentitud;
     public GameObject puTripleDisparo;
+    public GameObject puPequeno;
+    public GameObject puGrande;
     private bool velAct = false;
     private bool lenAct = false;
     private bool camAct = false;
     private bool salAct = false;
+    private bool peqAct = false;
+    private bool agrAct = false;
 
 
     public GameObject gameOver;
@@ -57,7 +61,7 @@ public class MovJugador : MonoBehaviour
     public GameObject flagPuertaFinal;
     public GameObject puertaHabitaciones;
 
-
+    public GameObject enemigoFinal;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,6 +116,8 @@ public class MovJugador : MonoBehaviour
             puLentitudN1.SetActive(false);
             puTripleDisparoN1.SetActive(false);
             puVelocidadN1.SetActive(false);
+            puPequeno.SetActive(false);
+            puGrande.SetActive(false);
         }
         else
         {
@@ -147,6 +153,14 @@ public class MovJugador : MonoBehaviour
             {
                 puLentitudN1.SetActive(true);
             }
+            if (peqAct == true)
+            {
+                puPequeno.SetActive(true);
+            }
+            if (agrAct == true)
+            {
+                puGrande.SetActive(true);
+            }
 
             PowerUp.gameObject.SetActive(false);
         }
@@ -158,6 +172,7 @@ public class MovJugador : MonoBehaviour
             tiempo = 15;
 
             velocidad = 20;
+            transform.localScale = new Vector3(2f, 2.5f, 2f);
             campoProtector.SetActive(false);
             flag.gameObject.SetActive(false);
 
@@ -220,6 +235,28 @@ public class MovJugador : MonoBehaviour
             PowerUp.text = "Campo protector activado, aprovéchalo";
 
         }
+        else if (collision.gameObject.tag == "PUPequeno")
+        {
+            transform.localScale = new Vector3(1f, 1.5f, 1f);
+            collision.gameObject.SetActive(false);
+            estadoPU();
+            tiempo = 40;
+            timer.gameObject.SetActive(true);
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "Encogerse ayuda a acceder a ciertos lugares, pero, ¿pareciera ser más largo?";
+
+        }
+        else if (collision.gameObject.tag == "PUGrande")
+        {
+            transform.localScale = new Vector3(3.5f, 4f, 3.5f);
+            collision.gameObject.SetActive(false);
+            estadoPU();
+            tiempo = 30;
+            timer.gameObject.SetActive(true);
+            PowerUp.gameObject.SetActive(true);
+            PowerUp.text = "Espero que no te asusten las alturas.";
+
+        }
         else if (collision.gameObject.tag == "EneVeloz" || collision.gameObject.tag == "BalasDelEnemigo" || collision.gameObject.tag == "EnemigoTeletransportador" || collision.gameObject.tag == "Acido" ||
             collision.gameObject.tag == "EnemigoSaltador" || collision.gameObject.tag == "EnemigoSaltadorClon" || collision.gameObject.tag == "EnemigoMagnetico" || collision.gameObject.tag == "Fuego")
         {
@@ -241,10 +278,15 @@ public class MovJugador : MonoBehaviour
             puertaMensaje.gameObject.SetActive(true);
             puertaMensaje.text = "Deshazte de tus enemigos primero.";
         }
-        else if (collision.gameObject.tag == "PuertaSalidaFinal" && llaveCopia.activeInHierarchy)
+        else if (collision.gameObject.tag == "PuertaSalidaFinal" && llaveCopia.activeInHierarchy && !enemigoFinal.activeInHierarchy)
         {
             llaveCopia.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.tag == "PuertaSalidaFinal" && llaveCopia.activeInHierarchy && enemigoFinal.activeInHierarchy)
+        {
+            puertaMensaje.gameObject.SetActive(true);
+            puertaMensaje.text = "Deshazte de tu enemigo.";
         }
         if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
         {
@@ -260,6 +302,10 @@ public class MovJugador : MonoBehaviour
             enElPiso = false;
         }
         else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && !flagPuertaFinal.activeInHierarchy)
+        {
+            puertaMensaje.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.tag == "PuertaSalidaFinal" && llaveCopia.activeInHierarchy && enemigoFinal.activeInHierarchy)
         {
             puertaMensaje.gameObject.SetActive(false);
         }
@@ -333,6 +379,24 @@ public class MovJugador : MonoBehaviour
         else
         {
             lenActN1 = false;
+        }
+
+        if (puPequeno.activeInHierarchy)
+        {
+            peqAct = true;
+        }
+        else
+        {
+            peqAct = false;
+        }
+
+        if (puGrande.activeInHierarchy)
+        {
+            agrAct = true;
+        }
+        else
+        {
+            agrAct = false;
         }
     }
 }
