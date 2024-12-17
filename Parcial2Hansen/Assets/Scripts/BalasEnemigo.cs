@@ -18,7 +18,7 @@ public class BalasEnemigo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "EnemigoTirador" && collision.gameObject.tag != "BalasDelEnemigo")
+        if (collision.gameObject.tag != "EnemigoTirador" && collision.gameObject.tag != "BalasDelEnemigo" && collision.gameObject.tag != "EnemigoFinal")
         {
             
             gameObject.SetActive(false);

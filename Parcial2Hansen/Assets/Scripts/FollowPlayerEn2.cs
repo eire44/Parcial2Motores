@@ -11,7 +11,7 @@ public class FollowPlayerEn2 : MonoBehaviour
     public GameObject jugador;
 
     public GameObject bala;
-    private int velocidadBala = 1000;
+    public int velocidadBala = 1000;
     private float timer = 0f;
 
 

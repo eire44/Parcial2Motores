@@ -46,10 +46,12 @@ public class MovJugador : MonoBehaviour
     public GameObject puCampoN1;
     public GameObject puLentitudN1;
     public GameObject puTripleDisparoN1;
+    public GameObject puCampoN2;
     private bool velActN1 = false;
     private bool lenActN1 = false;
     private bool camActN1 = false;
     private bool salActN1 = false;
+    private bool camActN2 = false;
 
     public GameObject llaveCopia;
     public Text enemigos;
@@ -118,6 +120,7 @@ public class MovJugador : MonoBehaviour
             puVelocidadN1.SetActive(false);
             puPequeno.SetActive(false);
             puGrande.SetActive(false);
+            puCampoN2.SetActive(false);
         }
         else
         {
@@ -161,6 +164,10 @@ public class MovJugador : MonoBehaviour
             {
                 puGrande.SetActive(true);
             }
+            if (camActN2 == true)
+            {
+                puCampoN2.SetActive(true);
+            }
 
             PowerUp.gameObject.SetActive(false);
         }
@@ -189,6 +196,7 @@ public class MovJugador : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "PUvelocidad" || collision.gameObject.tag == "PUvelocidadN1")
         {
             velocidad = velocidad * 1.5f;
@@ -270,6 +278,7 @@ public class MovJugador : MonoBehaviour
         else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && flagPuertaFinal.activeInHierarchy)
         {
             llaveCopia.gameObject.SetActive(false);
+            enemigos.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
             puertaHabitaciones.SetActive(true);
         }
@@ -397,6 +406,15 @@ public class MovJugador : MonoBehaviour
         else
         {
             agrAct = false;
+        }
+
+        if (puCampoN2.activeInHierarchy)
+        {
+            camActN2 = true;
+        }
+        else
+        {
+            camActN2 = false;
         }
     }
 }
