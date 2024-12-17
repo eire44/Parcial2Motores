@@ -62,18 +62,18 @@ public class SceneController : MonoBehaviour
         {
             flagPuertaFinal.SetActive(true);
 
-            if(!puertaFinal.activeInHierarchy)
-            {
-                victoria.SetActive(true);
-                menu.gameObject.SetActive(false);
-                PowerUp.gameObject.SetActive(false);
-                timer.gameObject.SetActive(false);
-                enemigos.gameObject.SetActive(false);
-                Time.timeScale = 0;
-
-            }
         }
 
+        if (!puertaFinal.activeInHierarchy)
+        {
+            victoria.SetActive(true);
+            menu.gameObject.SetActive(false);
+            PowerUp.gameObject.SetActive(false);
+            timer.gameObject.SetActive(false);
+            enemigos.gameObject.SetActive(false);
+            Time.timeScale = 0;
+
+        }
     }
     
 }

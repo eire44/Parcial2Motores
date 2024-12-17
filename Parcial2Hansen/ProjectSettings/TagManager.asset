@@ -32,6 +32,8 @@ TagManager:
   - HabilitarSalto
   - Fuego
   - Acido
+  - Caja Fuerte
+  - PuertaSalidaFinal
   layers:
   - Default
   - TransparentFX

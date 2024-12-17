@@ -55,6 +55,8 @@ public class MovJugador : MonoBehaviour
     private MotionBlur blur;
 
     public GameObject flagPuertaFinal;
+    public GameObject puertaHabitaciones;
+
 
     // Start is called before the first frame update
     void Start()
@@ -232,11 +234,17 @@ public class MovJugador : MonoBehaviour
         {
             llaveCopia.gameObject.SetActive(false);
             collision.gameObject.SetActive(false);
+            puertaHabitaciones.SetActive(true);
         }
         else if (collision.gameObject.tag == "PuertaSalida" && llaveCopia.activeInHierarchy && !flagPuertaFinal.activeInHierarchy)
         {
             puertaMensaje.gameObject.SetActive(true);
             puertaMensaje.text = "Deshazte de tus enemigos primero.";
+        }
+        else if (collision.gameObject.tag == "PuertaSalidaFinal" && llaveCopia.activeInHierarchy)
+        {
+            llaveCopia.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Piso" || collision.gameObject.tag == "HabilitarSalto")
         {
